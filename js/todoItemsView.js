@@ -9,11 +9,16 @@ var TodoItemsView = Backbone.View.extend({
         }
 
         this.model.on('add', this.onAddTodoItem, this);
+        this.model.on('remove', this.onRemoveTodoItem, this);
     },
 
     onAddTodoItem: function (todoItem) {
         var view = new TodoItemView({ model: todoItem });
         this.$el.append(view.render().$el);
+    },
+
+    onRemoveTodoItem: function (todoItem) {
+        this.$('li#' + todoItem.id).remove();
     },
 
     events: {
@@ -41,7 +46,6 @@ var TodoItemsView = Backbone.View.extend({
 
     render: function () {
         var self = this;
-
         this.$el.append('<input type="text" autofocus id="newTodoItem" </input>');
         this.$el.append('<button id="add">Add</button>');
 

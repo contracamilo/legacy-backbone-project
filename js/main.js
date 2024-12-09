@@ -1,7 +1,7 @@
 $(function() {
   var todoItems = new TodoItems([
-		new TodoItem({ description: 'Todo 1' }),
-		new TodoItem({ description: 'Todo 2' }),
+		new TodoItem({ id:'1', description: 'Todo 1' }),
+		new TodoItem({ id:'2', description: 'Todo 2' }),
   ]);
 
   var todoItemsView = new TodoItemsView({ model: todoItems });
