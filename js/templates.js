@@ -1,5 +1,15 @@
 var todoItemTemplate = _.template(`
-    <input id="toggle" type="checkbox" <%= checked %>> 
-    <%= title %>
-    <button id="delete">Delete</button>
+    <label for="toggle">
+        <input id="toggle" type="checkbox" <%= checked %>> 
+        <%= title %>
+    </label>
+    <button id="delete"><span>Delete</span></button>
 `);
+
+var todoItemsTemplate = _.template(`
+        <header>
+            <input type="text" autofocus id="newTodoItem" />
+            <button id="add">Add</button>
+        </header>
+        <ul id="todoItems"></ul>
+    `);

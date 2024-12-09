@@ -5,6 +5,64 @@ body {
 
 body, p { font-size: 24px; }
 
-#todoItems li.completed {
+#todoItems {
+	list-style: none;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	padding-left: 0;
+	margin: 0;
+}
+
+header{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+#add {
+	background-color: #4CAF50;
+	color: white;
+	cursor: pointer;
+	border: 0;
+	text-decoration: none !important;
+	border-radius: 5px;
+	font-size: 1rem;
+	padding: 0 1rem;
+	width: 15%;
+}
+
+input[type="text"] {
+	width: 83%;
+	padding: 10px;
+	height: 4rem;
+	font-size: 2rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+#todoItems li {
+	padding: 10px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	display: flex;
+	justify-content: space-between;
+}
+
+#todoItems li.completed  label{
 	text-decoration: line-through;
+}
+
+
+#delete {
+	background-color: red;
+	color: white;
+	cursor: pointer;
+	border: 0;
+	text-decoration: none !important;
+	border-radius: 5px;
+	font-size: 0.9rem;
+	padding: 0 1rem;
 }

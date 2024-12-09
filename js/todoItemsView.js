@@ -1,7 +1,5 @@
 var TodoItemsView = Backbone.View.extend({ 
-    tagName: 'ul',
-
-    id: 'todoItems',
+    tagName: 'div', // Cambiado a 'div' para contener la estructura completa
 
     initialize: function (options) {
         if (!(options && options.model)) {
@@ -14,7 +12,7 @@ var TodoItemsView = Backbone.View.extend({
 
     onAddTodoItem: function (todoItem) {
         var view = new TodoItemView({ model: todoItem });
-        this.$el.append(view.render().$el);
+        this.$('#todoItems').append(view.render().$el);
     },
 
     onRemoveTodoItem: function (todoItem) {
@@ -25,7 +23,6 @@ var TodoItemsView = Backbone.View.extend({
         'click #add': 'onClickAdd',
         'keypress #newTodoItem': 'onKeyPress'
     },
-    
 
     onClickAdd: function () {
         var $textBox = this.$('#newTodoItem');
@@ -43,17 +40,11 @@ var TodoItemsView = Backbone.View.extend({
             this.onClickAdd();
         }
     },
-    
 
     render: function () {
-        var self = this;
-        this.$el.append('<input type="text" autofocus id="newTodoItem" </input>');
-        this.$el.append('<button id="add">Add</button>');
-
-        this.model.each(function (todoItem) {
-            var view = new TodoItemView({model: todoItem});
-            self.$el.append(view.render().$el);
-        });
+        this.$el.empty(); 
+        this.$el.html(todoItemsTemplate());
+    
         return this;
     }
 });

@@ -1,13 +1,14 @@
 $(function() {
   var todoItems = new TodoItems();
+
   todoItems.fetch({
     success: function() {
-      var todoItemsView = new TodoItemsView({ model: todoItems });
-      $('body').append(todoItemsView.render().$el);
+      console.log('Todo items fetched: ', todoItems);
     }
   });
 
   var todoItemsView = new TodoItemsView({ model: todoItems });
+  $('body').append(todoItemsView.render().$el);
 
-	 $('body').append(todoItemsView.render().$el);
+	
 });
